@@ -12,7 +12,7 @@ import LandingPage from "./components/LandingPage";
 import HomePage from "./components/HomePage";
 import DrawingCanvas from "./components/DrawingCanvas";
 import TextInput from "./components/TextInput";
-// import VotingSystem from "./components/VotingSystem";
+import VotingSystem from "./components/VotingSystem";
 import ResultsGallery from "./components/ResultsGallery";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
