@@ -1,3 +1,4 @@
+import { analyzeEmotion } from "../utils/emotionAnalysis";
 import React, { useState } from "react";
 import { ArrowLeft, Send, Sparkles, Loader2 } from "lucide-react";
 import AIResponsePopup from "./AIResponsePopup";
@@ -14,41 +15,13 @@ const TextInput: React.FC<TextInputProps> = ({ onBack, onSubmit }) => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
- const analyzeTextWithAI = async (input: string): Promise<string> => {
-  try {
-    const response = await fetch("https://samritak-emotion-api.hf.space/run/predict", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        data: [input]  // Gradio Spaces use `data` key with an array
-      })
-    });
-
-    const result = await response.json();
-
-    // result.data[0] is usually the output from your model
-    const aiResponse = result.data?.[0];
-
-    if (typeof aiResponse === "string") {
-      return aiResponse;
-    } else {
-      return "The model responded in an unexpected format.";
-    }
-  } catch (error) {
-    console.error("Error calling HF Space:", error);
-    return "Sorry, there was a problem analyzing your emotions.";
-  }
-};
-
   const handleSubmit = async () => {
     if (text.length < 5) return;
 
     setIsAnalyzing(true);
 
     try {
-      const analysis = await analyzeTextWithAI(text);
+      const analysis = await analyzeEmotion(text);
       setAiResponse(analysis);
       setSubmitted(true);
       setShowPopup(true); // Show the popup
