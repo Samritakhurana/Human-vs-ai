@@ -335,12 +335,5 @@ uvicorn main:app --reload --log-level debug
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-
-- **CS Girlies Hackathon** for the inspiration
-- **GroqAPI** for AI analysis capabilities
-- **React and FastAPI** communities for excellent documentation
-- **All contributors** who help make this project better
-
 
 
