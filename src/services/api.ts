@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL =
+  "https://079dd24c-76f9-429b-92dd-303ffc5c4e1a-00-13hi5gd0yb1m2.sisko.replit.dev";
 
 export interface TextRequest {
   user_text: string;
