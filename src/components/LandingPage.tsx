@@ -175,9 +175,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
         <FloatingDoodle className="top-1/2 left-1/4 text-2xl" delay={2}>
           🧠
         </FloatingDoodle>
-        <FloatingDoodle className="bottom-1/3 left-1/2 text-2xl" delay={0.8}>
-          🤖
-        </FloatingDoodle>
         <div
           className="absolute top-1/4 right-1/3 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse"
           style={{ animationDuration: "6s" }}
@@ -337,22 +334,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Drawing Example */}
-            <div className="bg-white rounded-3xl p-8 shadow-xl border-4 border-dashed border-purple-200">
+            <div className="bg-white rounded-3xl p-8 shadow-xl border-4 border-dashed border-pink-200">
               <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">
                 Drawing Challenge
               </h3>
 
-              <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="space-y-4 mb-4">
                 <div>
                   <h4 className="font-bold text-purple-600 mb-2">
                     Human Drew:
                   </h4>
-                  <div className="bg-gray-100 rounded-lg p-4 h-32 flex items-center justify-center border-2 border-dashed border-gray-300">
-                    <span className="text-4xl">😢</span>
+                  <div className="bg-gray-100 rounded-lg p-4 border-2 border-dashed border-gray-300">
+                    <p className="text-sm font-handwriting text-gray-700">
+                      🛖🛖🛖🛖🛖
+                    </p>
                   </div>
-                  <p className="text-sm text-gray-600 mt-2 font-handwriting">
-                    "Messy, emotional, real"
-                  </p>
                 </div>
 
                 <div>
@@ -360,7 +356,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
                     AI "Fixed" It:
                   </h4>
                   <div className="bg-blue-50 rounded-lg p-4 h-32 flex items-center justify-center border-2 border-dashed border-blue-300">
-                    <span className="text-4xl">😊</span>
+                    <span className="text-xl">The provided text is not a drawing description but rather a Base64-encoded image. Unfortunately, I'm a text-based AI and cannot directly interpret or display images. </span>
                   </div>
                   <p className="text-sm text-gray-600 mt-2 italic">
                     "Optimized for positivity"
