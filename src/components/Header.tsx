@@ -2,13 +2,16 @@ import React from "react";
 import { Palette, Github, ArrowRight } from "lucide-react";
 
 interface HeaderProps {
-  onNavigate: (page: "home" | "draw" | "text" | "vote" | "gallery") => void;
+  onNavigate: (
+    page: "home" | "draw" | "text" | "vote" | "gallery" | "games"
+  ) => void;
 }
 
 const navLinks = [
   { name: "Home", page: "home" },
   { name: "Drawing", page: "draw" },
   { name: "Text", page: "text" },
+  { name: "Games", page: "games" },
   { name: "Vote", page: "vote" },
   { name: "Gallery", page: "gallery" },
 ];
@@ -17,8 +20,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   return (
     <header className="w-full">
       {/* Top Banner */}
-      <div className="w-full bg-gradient-to-r from-purple-300 to-pink-200 text-white text-sm py-2 flex justify-center items-center">
-      </div>
+      <div className="w-full bg-gradient-to-r from-purple-300 to-pink-200 text-white text-sm py-2 flex justify-center items-center"></div>
       {/* Main Nav */}
       <nav className="w-full bg-white shadow flex items-center justify-between px-6 py-3">
         {/* Logo/Brand */}
