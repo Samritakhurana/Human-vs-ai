@@ -1,7 +1,7 @@
-# Human vs AI 
+# Mood Trace 🎭
 
-> **Can machines feel what we feel?**  
-> A web application that showcases the beautiful contrast between human emotional expression and AI's detached, algorithmic interpretation.
+> **Where human emotions meet AI interpretation**  
+> An interactive web application that showcases the beautiful contrast between human emotional expression and AI's detached, algorithmic interpretation through drawing, text, and therapeutic games.
 
 [![React](https://img.shields.io/badge/React-18.0.0-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue.svg)](https://www.typescriptlang.org/)
@@ -11,15 +11,16 @@
 
 ## Overview
 
-**Human vs AI** is an interactive web app where you get to express how you feel—through drawing, gaming or writing and then watch as AI tries to make sense of it. The idea is to explore how humans communicate emotion in rich, subtle ways… and how AI, no matter how advanced, often misinterprets or oversimplifies those feelings. It’s a reflection on the gap between real emotion and machine understanding.
+**Mood Trace** is an interactive web app where you get to express how you feel—through drawing, therapeutic games, or writing—and then watch as AI tries to make sense of it. The idea is to explore how humans communicate emotion in rich, subtle ways… and how AI, no matter how advanced, often misinterprets or oversimplifies those feelings. It's a reflection on the gap between real emotion and machine understanding, with added stress relief through therapeutic gaming.
 
 ## Key Features
 
--  **Drawing Challenge**: Draw your emotions freely and see how AI sanitizes them
--  **Text Challenge**: Write honestly about your feelings and watch AI transform them into corporate speak
--  **Community Voting**: Vote on which expressions feel more authentic and human
--  **Gallery & Rankings**: View top submissions and see how humans consistently win
--  **AI Analysis**: Real-time AI interpretation (with API key integration ready)
+- **Drawing Challenge**: Draw your emotions freely and see how AI sanitizes them
+- **Text Challenge**: Write honestly about your feelings and watch AI transform them into corporate speak
+- **Therapeutic Games Hub**: Stress relief games including Fruit Catcher, Bubble Pop, Memory Match, and more
+- **Community Voting**: Vote on which expressions feel more authentic and human
+- **Gallery & Rankings**: View top submissions and see how humans consistently win
+- **AI Analysis**: Real-time AI interpretation with deployed backend integration
 
 ## Architecture
 
@@ -31,33 +32,40 @@ graph TB
         B --> D[Text Input]
         B --> E[Results Gallery]
         B --> F[Voting System]
+        B --> G[Games Hub]
 
-        C --> G[AI Analysis Popup]
-        D --> G
-        E --> H[Submission Display]
-        F --> I[Vote Interface]
+        G --> H[Fruit Catcher]
+        G --> I[Bubble Pop]
+        G --> J[Memory Match]
+        G --> K[Breathing Bubbles]
+        G --> L[Color Flow]
+
+        C --> M[AI Analysis Popup]
+        D --> M
+        E --> N[Submission Display]
+        F --> O[Vote Interface]
     end
 
     subgraph "Backend (FastAPI + Python)"
-        J[FastAPI Server] --> K[Text Analysis]
-        J --> L[Drawing Analysis]
-        J --> M[Submission Management]
-        J --> N[Voting System]
+        P[FastAPI Server] --> Q[Text Analysis]
+        P --> R[Drawing Analysis]
+        P --> S[Submission Management]
+        P --> T[Voting System]
 
-        K --> O[OpenAI API]
-        L --> O
+        Q --> U[AI API]
+        R --> U
     end
 
     subgraph "Data Storage"
-        P[In-Memory Storage] --> Q[Submissions List]
-        P --> R[Vote Tracking]
+        V[In-Memory Storage] --> W[Submissions List]
+        V --> X[Vote Tracking]
     end
 
-    A -.-> J
-    C -.-> J
-    D -.-> J
-    E -.-> J
-    F -.-> J
+    A -.-> P
+    C -.-> P
+    D -.-> P
+    E -.-> P
+    F -.-> P
 ```
 
 ## Workflow
@@ -69,7 +77,7 @@ sequenceDiagram
     participant B as Backend
     participant AI as AI Service
 
-    U->>F: Draw/Write Expression
+    U->>F: Draw/Write/Play Expression
     F->>F: Capture User Input
     F->>B: Send for Analysis
     B->>AI: Request AI Analysis
@@ -89,16 +97,24 @@ sequenceDiagram
 ### Drawing Challenge
 
 - **Free-form drawing canvas**
-- **Mood-based prompts** 
-- **Real-time AI analysis** 
-- **Side-by-side comparison** 
+- **Mood-based prompts**
+- **Real-time AI analysis**
+- **Side-by-side comparison**
 
 ### Text Challenge
 
 - **Rich text input**
-- **AI tone analysis** 
+- **AI tone analysis**
 - **Metaphor detection**
 - **Emotional depth analysis**
+
+### Therapeutic Games Hub
+
+- **Fruit Catcher Deluxe**: Relaxing arcade game for stress relief
+- **Bubble Pop Therapy**: Therapeutic bubble popping with satisfying effects
+- **Memory Match Zen**: Brain training with beautiful memory cards
+- **Color Flow Meditation**: Meditative color pattern flow
+- **Breathing Bubbles**: Guided breathing exercises with visual feedback
 
 ### Community Features
 
@@ -109,10 +125,10 @@ sequenceDiagram
 
 ### Gallery & Rankings
 
-- **Hall of Fame** for top submissions!!
-- **Time-based sorting** 
-- **Category filtering** 
-- **Detailed statistics** 
+- **Hall of Fame** for top submissions
+- **Time-based sorting**
+- **Category filtering**
+- **Detailed statistics**
 
 ## Technology Stack
 
@@ -130,7 +146,7 @@ sequenceDiagram
 - **FastAPI** - Modern Python web framework
 - **Pydantic** - Data validation
 - **Uvicorn** - ASGI server
-- **GROQ API** - AI analysis (ready for integration)
+- **AI API Integration** - Ready for OpenAI/GROQ integration
 
 ### Development Tools
 
@@ -150,8 +166,8 @@ sequenceDiagram
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/human-vs-ai.git
-cd human-vs-ai
+git clone https://github.com/Samritakhurana/Human-vs-ai.git
+cd Human-vs-ai
 
 # Install dependencies
 npm install
@@ -187,12 +203,15 @@ uvicorn main:app --reload --port 8000
 Create a `.env` file in the backend directory:
 
 ```env
-GROQ_API_KEY=your_GROQ_api_key_here
+AI_API_KEY=your_ai_api_key_here
 ```
+
+## Usage
+
 ### Getting Started
 
-1. **Visit the landing page** and click "Try Human vs AI"
-2. **Choose your challenge**: Drawing or Text
+1. **Visit the landing page** and click "Start Tracing Moods"
+2. **Choose your challenge**: Drawing, Text, or Games
 3. **Express yourself** freely and authentically
 4. **Watch AI analyze** your expression
 5. **Compare the results** and see the difference
@@ -213,31 +232,52 @@ GROQ_API_KEY=your_GROQ_api_key_here
 - See how AI "improves" your writing
 - Compare the emotional depth
 
+### Games Hub
+
+- Access therapeutic stress relief games
+- Choose from various game categories
+- Track your relaxation progress
+- Enjoy immersive gaming experiences
+
 ## Project Structure
 
 ```
-human-vs-ai/
+Human-vs-ai/
 ├── src/
 │   ├── components/
 │   │   ├── LandingPage.tsx      # Initial landing experience
 │   │   ├── HomePage.tsx         # Main navigation hub
 │   │   ├── DrawingCanvas.tsx    # Drawing interface
 │   │   ├── TextInput.tsx        # Text input interface
+│   │   ├── VotingSystem.tsx     # Voting interface
 │   │   ├── ResultsGallery.tsx   # Gallery and rankings
 │   │   ├── Header.tsx           # Global navigation
 │   │   ├── Footer.tsx           # Site footer
-│   │   └── AIResponsePopup.tsx  # AI analysis display
-│   ├── hooks/
-│   │   └── useCanvas.ts         # Canvas drawing logic
+│   │   ├── AIResponsePopup.tsx  # AI analysis display
+│   │   └── hooks/
+│   │       └── useCanvas.ts     # Canvas drawing logic
+│   ├── games/
+│   │   ├── FruitCatcher.tsx     # Fruit catching game
+│   │   ├── BubblePop.tsx        # Bubble popping game
+│   │   ├── MemoryMatch.tsx      # Memory matching game
+│   │   ├── BreathingBubbles.tsx # Breathing exercise game
+│   │   └── ColorFlow.tsx        # Color flow meditation
+│   ├── GamesHub.tsx             # Games hub interface
+│   ├── services/
+│   │   └── api.ts               # API service functions
 │   ├── lib/
 │   │   └── tfModel.ts           # TensorFlow integration
 │   ├── App.tsx                  # Main application
 │   └── main.tsx                 # Entry point
 ├── backend/
-│   └── main.py                  # FastAPI server
+│   ├── main.py                  # FastAPI server
+│   ├── requirements.txt         # Python dependencies
+│   └── env.example              # Environment variables example
 ├── public/                      # Static assets
 └── package.json                 # Dependencies
 ```
+
+## API Endpoints
 
 ### Text Analysis
 
@@ -269,6 +309,8 @@ POST /submissions         # Save new submission
 POST /submissions/{id}/vote  # Vote on submission
 ```
 
+## Deployment
+
 ### Frontend Deployment
 
 ```bash
@@ -281,23 +323,22 @@ npm run build
 
 ### Backend Deployment
 
-```bash
-# Install production dependencies
-pip install -r requirements.txt
+The backend is deployed on Replit and accessible at:
 
-# Start production server
-uvicorn main:app --host 0.0.0.0 --port 8000
+```
+https://079dd24c-76f9-429b-92dd-303ffc5c4e1a-00-13hi5gd0yb1m2.sisko.replit.dev/
 ```
 
 ## 📈 Roadmap
 
 ### Phase 1 (Current)
 
-- Basic drawing and text challenges
-- AI analysis integration
-- Community voting system
-- Gallery and rankings
-- Interactive Games
+- ✅ Basic drawing and text challenges
+- ✅ AI analysis integration
+- ✅ Community voting system
+- ✅ Gallery and rankings
+- ✅ Interactive therapeutic games
+- ✅ Deployed backend integration
 
 ### Phase 2 (Planned)
 
@@ -305,6 +346,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 - Real-time collaboration features
 - Mobile app development
 - Social media sharing
+- Advanced game analytics
 
 ### Phase 3 (Future)
 
@@ -312,6 +354,9 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 - Advanced analytics dashboard
 - API for third-party integrations
 - Multi-language support
+- VR/AR gaming experiences
+
+## Troubleshooting
 
 **Frontend not loading:**
 
@@ -325,15 +370,35 @@ npm install
 
 ```bash
 # Check if server is running
-curl http://localhost:8000/
+curl https://079dd24c-76f9-429b-92dd-303ffc5c4e1a-00-13hi5gd0yb1m2.sisko.replit.dev/
 
 # Check logs
 uvicorn main:app --reload --log-level debug
 ```
 
+**Drawing canvas issues:**
+
+- Ensure browser supports Canvas API
+- Check for JavaScript errors in console
+- Verify touch events on mobile devices
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Acknowledgments
 
+- **CS Girlies Hackathon** for the inspiration
+- **OpenAI/GROQ** for AI analysis capabilities
+- **React and FastAPI** communities for excellent documentation
+- **All contributors** who help make this project better
 
+## 📞 Contact
+
+- **Project Link**: [https://github.com/Samritakhurana/Human-vs-ai](https://github.com/Samritakhurana/Human-vs-ai)
+- **Backend URL**: [https://079dd24c-76f9-429b-92dd-303ffc5c4e1a-00-13hi5gd0yb1m2.sisko.replit.dev/](https://079dd24c-76f9-429b-92dd-303ffc5c4e1a-00-13hi5gd0yb1m2.sisko.replit.dev/)
+
+---
+
+**Made with ❤️ by humans, for humans**  
+_(AI helped with the boring parts)_
