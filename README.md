@@ -9,19 +9,19 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3.0-38B2AC.svg)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 🌟 Overview
+## Overview
 
 **Human vs AI** is an interactive web application that explores the fundamental differences between human emotional expression and artificial intelligence's interpretation. Users can draw or write their feelings, then watch as AI attempts to "improve" or analyze their authentic expressions, often missing the subtle nuances that make us human.
 
-### Key Features
+## Key Features
 
-- 🎨 **Drawing Challenge**: Draw your emotions freely and see how AI sanitizes them
-- ✍️ **Text Challenge**: Write honestly about your feelings and watch AI transform them into corporate speak
-- 🗳️ **Community Voting**: Vote on which expressions feel more authentic and human
-- 🏆 **Gallery & Rankings**: View top submissions and see how humans consistently win
-- 🤖 **AI Analysis**: Real-time AI interpretation (with API key integration ready)
+-  **Drawing Challenge**: Draw your emotions freely and see how AI sanitizes them
+-  **Text Challenge**: Write honestly about your feelings and watch AI transform them into corporate speak
+-  **Community Voting**: Vote on which expressions feel more authentic and human
+-  **Gallery & Rankings**: View top submissions and see how humans consistently win
+-  **AI Analysis**: Real-time AI interpretation (with API key integration ready)
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 graph TB
@@ -60,7 +60,7 @@ graph TB
     F -.-> J
 ```
 
-## 🔄 Workflow
+## Workflow
 
 ```mermaid
 sequenceDiagram
@@ -84,37 +84,37 @@ sequenceDiagram
     B->>F: Update Rankings
 ```
 
-## 🚀 Features
+## Features
 
-### 🎨 Drawing Challenge
+### Drawing Challenge
 
 - **Free-form drawing canvas** with intuitive tools
 - **Mood-based prompts** to inspire emotional expression
 - **Real-time AI analysis** of your artistic expression
 - **Side-by-side comparison** of human vs AI interpretation
 
-### ✍️ Text Challenge
+### Text Challenge
 
 - **Rich text input** for stories, poems, or feelings
 - **AI tone analysis** and "improvement" suggestions
 - **Metaphor detection** and clinical reinterpretation
 - **Emotional depth analysis** vs AI's sanitized version
 
-### 🗳️ Community Features
+### Community Features
 
 - **Vote on submissions** to determine which feels more human
 - **Gallery rankings** with top human expressions
 - **Statistics dashboard** showing human vs AI preferences
 - **Real-time updates** of community votes
 
-### 🏆 Gallery & Rankings
+### Gallery & Rankings
 
 - **Hall of Fame** for top submissions
 - **Time-based sorting** and trending
 - **Category filtering** (drawing vs text)
 - **Detailed statistics** and analytics
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Frontend
 
@@ -138,7 +138,7 @@ sequenceDiagram
 - **PostCSS** - CSS processing
 - **TypeScript** - Type checking
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 
@@ -190,7 +190,7 @@ Create a `.env` file in the backend directory:
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-## 🎯 Usage
+## Usage
 
 ### Getting Started
 
@@ -216,7 +216,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 - See how AI "improves" your writing
 - Compare the emotional depth
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 human-vs-ai/
@@ -242,7 +242,7 @@ human-vs-ai/
 └── package.json                 # Dependencies
 ```
 
-## 🔧 API Endpoints
+## API Endpoints
 
 ### Text Analysis
 
@@ -274,7 +274,7 @@ POST /submissions         # Save new submission
 POST /submissions/{id}/vote  # Vote on submission
 ```
 
-## 🎨 UI/UX Features
+## UI/UX Features
 
 ### Design Principles
 
@@ -290,7 +290,7 @@ POST /submissions/{id}/vote  # Vote on submission
 - **Smooth animations** and hover effects
 - **Icon-based navigation** for intuitive use
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Here's how you can help:
 
@@ -308,7 +308,7 @@ We welcome contributions! Here's how you can help:
 - Include responsive design
 - Test on multiple browsers
 
-## 📊 Performance
+## Performance
 
 ### Frontend Optimization
 
@@ -324,7 +324,7 @@ We welcome contributions! Here's how you can help:
 - **API response caching** where appropriate
 - **Error handling** and graceful degradation
 
-## 🔒 Security
+## Security
 
 ### Data Protection
 
@@ -340,7 +340,7 @@ We welcome contributions! Here's how you can help:
 - **Regular dependency updates**
 - **Security headers** implementation
 
-## 🚀 Deployment
+## Deployment
 
 ### Frontend Deployment
 
@@ -366,26 +366,26 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 ### Phase 1 (Current)
 
-- ✅ Basic drawing and text challenges
-- ✅ AI analysis integration
-- ✅ Community voting system
-- ✅ Gallery and rankings
+- Basic drawing and text challenges
+- AI analysis integration
+- Community voting system
+- Gallery and rankings
 
 ### Phase 2 (Planned)
 
-- 🔄 Advanced AI models integration
-- 🔄 Real-time collaboration features
-- 🔄 Mobile app development
-- 🔄 Social media sharing
+- Advanced AI models integration
+- Real-time collaboration features
+- Mobile app development
+- Social media sharing
 
 ### Phase 3 (Future)
 
-- 🔄 Machine learning model training
-- 🔄 Advanced analytics dashboard
-- 🔄 API for third-party integrations
-- 🔄 Multi-language support
+- Machine learning model training
+- Advanced analytics dashboard
+- API for third-party integrations
+- Multi-language support
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -413,11 +413,11 @@ uvicorn main:app --reload --log-level debug
 - Check for JavaScript errors in console
 - Verify touch events on mobile devices
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **CS Girlies Hackathon** for the inspiration
 - **OpenAI** for AI analysis capabilities
