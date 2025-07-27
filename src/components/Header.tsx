@@ -21,13 +21,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
       <div className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm py-2 flex justify-center items-center">
         <span className="font-medium flex items-center">
           <span className="mr-2">⚡</span>
-          Experience the future of human and AI creativity!&nbsp;
-          <a
-            href="#"
-            className="underline font-semibold hover:text-purple-200 ml-1"
-          >
-            Learn More →
-          </a>
+          Experience the future of human and AI creativity!
         </span>
       </div>
       {/* Main Nav */}

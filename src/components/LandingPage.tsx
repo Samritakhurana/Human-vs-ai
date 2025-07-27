@@ -51,8 +51,116 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 overflow-hidden relative">
-      {/* Animated Background Elements */}
+      {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Floating Emotion Bubbles */}
+        <div
+          className="absolute top-20 left-10 w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-20 animate-bounce"
+          style={{ animationDuration: "4s", animationDelay: "0s" }}
+        ></div>
+        <div
+          className="absolute top-40 right-20 w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-30 animate-bounce"
+          style={{ animationDuration: "3s", animationDelay: "1s" }}
+        ></div>
+        <div
+          className="absolute bottom-32 left-1/3 w-20 h-20 bg-gradient-to-r from-pink-400 to-orange-400 rounded-full opacity-25 animate-bounce"
+          style={{ animationDuration: "5s", animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute top-1/2 right-1/4 w-14 h-14 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-20 animate-bounce"
+          style={{ animationDuration: "4.5s", animationDelay: "0.5s" }}
+        ></div>
+
+        {/* Neural Network Connections */}
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 opacity-10">
+          <div
+            className="absolute top-0 left-0 w-2 h-2 bg-purple-400 rounded-full animate-ping"
+            style={{ animationDuration: "2s" }}
+          ></div>
+          <div
+            className="absolute top-8 right-4 w-2 h-2 bg-pink-400 rounded-full animate-ping"
+            style={{ animationDuration: "2.5s", animationDelay: "0.5s" }}
+          ></div>
+          <div
+            className="absolute bottom-4 left-8 w-2 h-2 bg-blue-400 rounded-full animate-ping"
+            style={{ animationDuration: "1.8s", animationDelay: "1s" }}
+          ></div>
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 128 128">
+            <path
+              d="M8 8 L32 32 L64 16 L96 48 L120 24"
+              stroke="url(#gradient)"
+              strokeWidth="1"
+              fill="none"
+              opacity="0.3"
+              className="animate-pulse"
+            >
+              <defs>
+                <linearGradient
+                  id="gradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stopColor="#8B5CF6" />
+                  <stop offset="50%" stopColor="#EC4899" />
+                  <stop offset="100%" stopColor="#3B82F6" />
+                </linearGradient>
+              </defs>
+            </path>
+          </svg>
+        </div>
+
+        {/* Mood Wave Patterns */}
+        <div className="absolute bottom-20 right-10 w-40 h-20 opacity-15">
+          <svg className="w-full h-full" viewBox="0 0 160 80">
+            <path
+              d="M0 40 Q20 20 40 40 T80 40 T120 40 T160 40"
+              stroke="url(#moodGradient)"
+              strokeWidth="2"
+              fill="none"
+              className="animate-pulse"
+            >
+              <defs>
+                <linearGradient
+                  id="moodGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop offset="0%" stopColor="#EC4899" />
+                  <stop offset="50%" stopColor="#8B5CF6" />
+                  <stop offset="100%" stopColor="#3B82F6" />
+                </linearGradient>
+              </defs>
+            </path>
+          </svg>
+        </div>
+
+        {/* AI Processing Dots */}
+        <div className="absolute top-1/3 left-1/2 w-24 h-8 opacity-20">
+          <div className="flex space-x-2">
+            <div
+              className="w-2 h-2 bg-purple-400 rounded-full animate-bounce"
+              style={{ animationDuration: "1s" }}
+            ></div>
+            <div
+              className="w-2 h-2 bg-pink-400 rounded-full animate-bounce"
+              style={{ animationDuration: "1s", animationDelay: "0.2s" }}
+            ></div>
+            <div
+              className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
+              style={{ animationDuration: "1s", animationDelay: "0.4s" }}
+            ></div>
+            <div
+              className="w-2 h-2 bg-green-400 rounded-full animate-bounce"
+              style={{ animationDuration: "1s", animationDelay: "0.6s" }}
+            ></div>
+          </div>
+        </div>
+
+        {/* Floating Icons with Enhanced Animation */}
         <FloatingDoodle className="top-20 left-10 text-6xl" delay={0}>
           🎨
         </FloatingDoodle>
@@ -63,13 +171,50 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
           💭
         </FloatingDoodle>
 
-        {/* Floating cursor trail */}
+        {/* New Mood-Related Icons */}
+        <FloatingDoodle className="bottom-40 right-1/4 text-2xl" delay={1.5}>
+          😊
+        </FloatingDoodle>
+        <FloatingDoodle className="top-1/2 left-1/4 text-2xl" delay={2}>
+          🧠
+        </FloatingDoodle>
+        <FloatingDoodle className="bottom-1/3 left-1/2 text-2xl" delay={0.8}>
+          🤖
+        </FloatingDoodle>
+
+        {/* Animated Gradient Orbs */}
         <div
-          className="w-4 h-4 bg-purple-400 rounded-full opacity-30 transition-all duration-300 ease-out pointer-events-none"
+          className="absolute top-1/4 right-1/3 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse"
+          style={{ animationDuration: "6s" }}
+        ></div>
+        <div
+          className="absolute bottom-1/4 left-1/4 w-40 h-40 bg-gradient-to-r from-blue-400/15 to-purple-400/15 rounded-full blur-xl animate-pulse"
+          style={{ animationDuration: "8s", animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute top-1/2 right-1/4 w-24 h-24 bg-gradient-to-r from-pink-400/25 to-orange-400/25 rounded-full blur-xl animate-pulse"
+          style={{ animationDuration: "7s", animationDelay: "1s" }}
+        ></div>
+
+        {/* Floating cursor trail with enhanced animation */}
+        <div
+          className="w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-40 transition-all duration-300 ease-out pointer-events-none shadow-lg"
           style={{
             transform: `translate(${mousePosition.x - 8}px, ${
               mousePosition.y - 8
             }px)`,
+            filter: "blur(1px)",
+          }}
+        />
+
+        {/* Cursor trail particles */}
+        <div
+          className="w-2 h-2 bg-blue-400 rounded-full opacity-30 transition-all duration-500 ease-out pointer-events-none absolute"
+          style={{
+            transform: `translate(${mousePosition.x - 4}px, ${
+              mousePosition.y - 4
+            }px)`,
+            animationDelay: "0.1s",
           }}
         />
       </div>
