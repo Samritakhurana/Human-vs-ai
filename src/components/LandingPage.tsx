@@ -235,7 +235,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
             but here's the twist:
             </p>
                         <p className="text-xl md:text-2xl text-pink-600 font-medium mb-4">
-              It never really know!!
+              It never really knows!!
             </p>
 
             <div className="relative mb-8">
@@ -415,7 +415,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
         {/* Tech Stack */}
         <section className="mb-20 max-w-4xl mx-auto">
           <h2 className="text-4xl font-black text-center mb-12 text-gray-800">
-           With lines of code… and a whole lot of heart.
+           Made with lines of code… and a whole lot of heart.
             <span className="block text-lg font-handwriting text-purple-600 mt-2">
               (And obviously a lot of caffeine!!🥹)
             </span>

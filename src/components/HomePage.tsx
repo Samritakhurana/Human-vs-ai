@@ -153,7 +153,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </div>
             <h3 className="font-semibold text-gray-800 mb-2">1. You Create</h3>
             <p className="text-gray-600 text-base">
-              Draw youR feelings or write your thoughts.
+              Draw your feelings or write your thoughts.
             </p>
             <p className="text-purple-500 italic font-medium mt-2">
               Raw, real, human.
