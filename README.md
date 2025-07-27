@@ -130,7 +130,7 @@ sequenceDiagram
 - **FastAPI** - Modern Python web framework
 - **Pydantic** - Data validation
 - **Uvicorn** - ASGI server
-- **OpenAI API** - AI analysis (ready for integration)
+- **GROQ API** - AI analysis (ready for integration)
 
 ### Development Tools
 
@@ -187,11 +187,8 @@ uvicorn main:app --reload --port 8000
 Create a `.env` file in the backend directory:
 
 ```env
-OPENAI_API_KEY=your_openai_api_key_here
+GROQ_API_KEY=your_GROQ_api_key_here
 ```
-
-## Usage
-
 ### Getting Started
 
 1. **Visit the landing page** and click "Try Human vs AI"
@@ -242,8 +239,6 @@ human-vs-ai/
 └── package.json                 # Dependencies
 ```
 
-## API Endpoints
-
 ### Text Analysis
 
 ```http
@@ -274,74 +269,6 @@ POST /submissions         # Save new submission
 POST /submissions/{id}/vote  # Vote on submission
 ```
 
-## UI/UX Features
-
-### Design Principles
-
-- **Human-centered design** emphasizing authenticity
-- **Contrast visualization** between human and AI expression
-- **Responsive layout** for all devices
-- **Accessible interface** with proper contrast and navigation
-
-### Visual Elements
-
-- **Gradient backgrounds** with purple-to-pink themes
-- **Frosted glass effects** for modern aesthetics
-- **Smooth animations** and hover effects
-- **Icon-based navigation** for intuitive use
-
-## Contributing
-
-We welcome contributions! Here's how you can help:
-
-1. **Fork the repository**
-2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Commit your changes** (`git commit -m 'Add amazing feature'`)
-4. **Push to the branch** (`git push origin feature/amazing-feature`)
-5. **Open a Pull Request**
-
-### Development Guidelines
-
-- Follow TypeScript best practices
-- Use meaningful component names
-- Add proper error handling
-- Include responsive design
-- Test on multiple browsers
-
-## Performance
-
-### Frontend Optimization
-
-- **Code splitting** for faster loading
-- **Lazy loading** of components
-- **Optimized images** and assets
-- **Minified production builds**
-
-### Backend Performance
-
-- **Async/await** for non-blocking operations
-- **Efficient data structures** for in-memory storage
-- **API response caching** where appropriate
-- **Error handling** and graceful degradation
-
-## Security
-
-### Data Protection
-
-- **Input validation** on all endpoints
-- **CORS configuration** for cross-origin requests
-- **API key management** for AI services
-- **No sensitive data storage** in client-side code
-
-### Best Practices
-
-- **Environment variables** for sensitive data
-- **HTTPS enforcement** in production
-- **Regular dependency updates**
-- **Security headers** implementation
-
-## Deployment
-
 ### Frontend Deployment
 
 ```bash
@@ -370,6 +297,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 - AI analysis integration
 - Community voting system
 - Gallery and rankings
+- Interactive Games
 
 ### Phase 2 (Planned)
 
@@ -384,10 +312,6 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 - Advanced analytics dashboard
 - API for third-party integrations
 - Multi-language support
-
-## Troubleshooting
-
-### Common Issues
 
 **Frontend not loading:**
 
@@ -407,12 +331,6 @@ curl http://localhost:8000/
 uvicorn main:app --reload --log-level debug
 ```
 
-**Drawing canvas issues:**
-
-- Ensure browser supports Canvas API
-- Check for JavaScript errors in console
-- Verify touch events on mobile devices
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -420,25 +338,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - **CS Girlies Hackathon** for the inspiration
-- **OpenAI** for AI analysis capabilities
+- **GroqAPI** for AI analysis capabilities
 - **React and FastAPI** communities for excellent documentation
 - **All contributors** who help make this project better
 
-## 📞 Contact
 
-- **Project Link**: [https://github.com/yourusername/human-vs-ai](https://github.com/yourusername/human-vs-ai)
-- **Email**: team@humanvsai.com
-- **Discord**: [Join our community](https://discord.gg/humanvsai)
 
----
-
-<div align="center">
-
-**Made with ❤️ by humans, for humans**  
-_(AI helped with the boring parts)_
-
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/human-vs-ai?style=social)](https://github.com/yourusername/human-vs-ai)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/human-vs-ai?style=social)](https://github.com/yourusername/human-vs-ai)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/human-vs-ai)](https://github.com/yourusername/human-vs-ai/issues)
-
-</div>
