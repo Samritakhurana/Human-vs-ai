@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ArrowLeft, Send, Sparkles, Loader2 } from "lucide-react";
 import AIResponsePopup from "./AIResponsePopup";
+import { analyzeText } from "../services/api";
 
 interface TextInputProps {
   onBack: () => void;
@@ -15,135 +16,14 @@ const TextInput: React.FC<TextInputProps> = ({ onBack, onSubmit }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const analyzeTextWithAI = async (input: string): Promise<string> => {
-    // Simulate AI processing time
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    // Simple emotion detection based on keywords
-    const text = input.toLowerCase();
-
-    // Detect emotional keywords
-    const emotions = {
-      sad: [
-        "sad",
-        "cry",
-        "depressed",
-        "down",
-        "upset",
-        "hurt",
-        "pain",
-        "lonely",
-        "empty",
-        "broken",
-      ],
-      angry: [
-        "angry",
-        "mad",
-        "furious",
-        "rage",
-        "hate",
-        "annoyed",
-        "frustrated",
-        "pissed",
-      ],
-      happy: [
-        "happy",
-        "joy",
-        "excited",
-        "great",
-        "awesome",
-        "amazing",
-        "love",
-        "wonderful",
-      ],
-      anxious: [
-        "anxious",
-        "worried",
-        "nervous",
-        "stress",
-        "panic",
-        "overwhelmed",
-        "scared",
-        "afraid",
-      ],
-      tired: [
-        "tired",
-        "exhausted",
-        "drained",
-        "sleepy",
-        "weary",
-        "fatigue",
-        "worn out",
-      ],
-      confused: [
-        "confused",
-        "lost",
-        "unclear",
-        "puzzled",
-        "bewildered",
-        "uncertain",
-      ],
-    };
-
-    let detectedEmotion = "neutral";
-    let confidence = 65;
-
-    // Check for emotional keywords
-    for (const [emotion, keywords] of Object.entries(emotions)) {
-      for (const keyword of keywords) {
-        if (text.includes(keyword)) {
-          detectedEmotion = emotion;
-          confidence = Math.floor(Math.random() * 20) + 75; // 75-95%
-          break;
-        }
-      }
-      if (detectedEmotion !== "neutral") break;
+    try {
+      // Call the real AI API
+      const response = await analyzeText(input);
+      return response;
+    } catch (error) {
+      console.error("Error calling AI API:", error);
+      throw error;
     }
-
-    // Generate AI's overly clinical response
-    const responses = {
-      sad: [
-        "I detect indicators of temporary emotional downturn. I recommend implementing positive mindset strategies and engaging in mood-boosting activities for optimal mental wellness.",
-        "Analysis shows signs of sadness. This appears to be a normal human emotional response. I suggest practicing gratitude exercises and maintaining social connections for improved well-being.",
-        "Emotional state assessment indicates melancholy. This is within normal parameters. Consider implementing self-care routines and seeking professional support if symptoms persist.",
-      ],
-      angry: [
-        "I identify elevated stress indicators and potential frustration markers. I recommend anger management techniques and deep breathing exercises for emotional regulation.",
-        "Analysis reveals heightened emotional intensity. This appears to be a natural stress response. Consider implementing mindfulness practices and conflict resolution strategies.",
-        "Emotional assessment shows signs of agitation. I suggest channeling this energy into productive activities and practicing emotional intelligence techniques.",
-      ],
-      happy: [
-        "I detect positive emotional indicators! This suggests optimal mental state and healthy psychological functioning. Continue maintaining these beneficial thought patterns.",
-        "Analysis shows elevated mood markers. This indicates successful emotional regulation and positive mental health outcomes. Excellent work on maintaining wellness!",
-        "Emotional state assessment reveals joy indicators. This demonstrates effective coping strategies and positive life engagement. Keep up the good work!",
-      ],
-      anxious: [
-        "I identify stress-related emotional markers. This appears to be a common human response to uncertainty. I recommend implementing anxiety management techniques and relaxation strategies.",
-        "Analysis shows elevated concern indicators. This is within normal stress response parameters. Consider practicing mindfulness and seeking appropriate support resources.",
-        "Emotional assessment reveals worry patterns. I suggest implementing stress-reduction techniques and maintaining healthy coping mechanisms for optimal mental wellness.",
-      ],
-      tired: [
-        "I detect fatigue-related emotional indicators. This suggests the need for improved sleep hygiene and energy management strategies for optimal functioning.",
-        "Analysis shows exhaustion markers. This appears to be related to lifestyle factors. I recommend prioritizing rest and implementing better work-life balance practices.",
-        "Emotional state assessment indicates low energy levels. Consider optimizing sleep patterns and incorporating stress-reduction techniques for improved vitality.",
-      ],
-      confused: [
-        "I identify uncertainty indicators in your expression. This appears to be a normal cognitive response to complex situations. I recommend breaking down problems into manageable components.",
-        "Analysis shows signs of cognitive processing challenges. This is within normal problem-solving parameters. Consider seeking clarification and additional information sources.",
-        "Emotional assessment reveals decision-making complexity. I suggest implementing structured thinking approaches and seeking appropriate guidance for clarity.",
-      ],
-      neutral: [
-        "I detect balanced emotional indicators. This suggests stable mental state and effective emotional regulation. Continue maintaining these healthy psychological patterns.",
-        "Analysis shows neutral emotional markers. This indicates good emotional stability and balanced mental wellness. Your expression demonstrates healthy coping mechanisms.",
-        "Emotional state assessment reveals equilibrium. This suggests effective stress management and positive mental health outcomes. Maintain current wellness strategies.",
-      ],
-    };
-
-    const responseOptions =
-      responses[detectedEmotion as keyof typeof responses];
-    const selectedResponse =
-      responseOptions[Math.floor(Math.random() * responseOptions.length)];
-
-    return `${selectedResponse} (Confidence: ${confidence}%)`;
   };
 
   const handleSubmit = async () => {
@@ -169,7 +49,7 @@ const TextInput: React.FC<TextInputProps> = ({ onBack, onSubmit }) => {
       setTimeout(() => {
         setSubmitted(false);
         setAiResponse("");
-      }, 20000);
+      }, 50000);
     } catch (error) {
       console.error("Error analyzing text:", error);
       setAiResponse(

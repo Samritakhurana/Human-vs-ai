@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import AIResponsePopup from "./AIResponsePopup";
 import DrawingPrompts from "./DrawingPrompts";
+import { analyzeDrawing } from "../services/api";
 
 interface DrawingCanvasProps {
   onBack: () => void;
@@ -113,8 +114,8 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ onBack, onSubmit }) => {
     setSelectedPrompt(prompt);
   };
 
-  // Analyze drawing with AI
-  const analyzeDrawing = (canvas: HTMLCanvasElement): string => {
+  // Analyze drawing with local algorithm (fallback)
+  const analyzeDrawingLocal = (canvas: HTMLCanvasElement): string => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return "Unable to analyze drawing";
 
@@ -204,31 +205,38 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ onBack, onSubmit }) => {
 
     setIsAnalyzing(true);
 
-    // Simulate AI processing time
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const canvas = canvasRef.current;
+      const imageDataUrl = canvas.toDataURL();
 
-    const canvas = canvasRef.current;
-    const analysis = analyzeDrawing(canvas);
-    const imageDataUrl = canvas.toDataURL();
+      // Call the real AI API
+      const analysis = await analyzeDrawing(imageDataUrl);
 
-    setAiAnalysis(analysis);
-    setSubmitted(true);
-    setShowPopup(true); // Show the popup
-    setIsAnalyzing(false);
+      setAiAnalysis(analysis);
+      setSubmitted(true);
+      setShowPopup(true); // Show the popup
 
-    if (onSubmit) {
-      onSubmit({
-        type: "drawing",
-        human: imageDataUrl,
-        ai: analysis,
-      });
+      if (onSubmit) {
+        onSubmit({
+          type: "drawing",
+          human: imageDataUrl,
+          ai: analysis,
+        });
+      }
+
+      // Reset after popup is closed
+      setTimeout(() => {
+        setSubmitted(false);
+        setAiAnalysis("");
+      }, 50000);
+    } catch (error) {
+      console.error("Error analyzing drawing:", error);
+      setAiAnalysis(
+        "Sorry, there was an error analyzing your drawing. Please try again."
+      );
+    } finally {
+      setIsAnalyzing(false);
     }
-
-    // Reset after popup is closed
-    setTimeout(() => {
-      setSubmitted(false);
-      setAiAnalysis("");
-    }, 8000);
   };
 
   const handleClosePopup = () => {

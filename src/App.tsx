@@ -16,6 +16,12 @@ import VotingSystem from "./components/VotingSystem";
 import ResultsGallery from "./components/ResultsGallery";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import {
+  saveSubmission,
+  getSubmissions,
+  voteSubmission,
+  Submission as BackendSubmission,
+} from "./services/api";
 
 type Page = "landing" | "home" | "draw" | "text" | "vote" | "gallery";
 
@@ -32,44 +38,93 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>("landing");
   const [submissions, setSubmissions] = useState<Submission[]>([]);
 
-  // Load submissions from localStorage on mount
+  // Load submissions from backend on mount
   useEffect(() => {
-    const saved = localStorage.getItem("humanvsai-submissions");
-    if (saved) {
+    const loadSubmissions = async () => {
       try {
-        setSubmissions(JSON.parse(saved));
-      } catch (e) {
-        console.error("Failed to load submissions:", e);
+        const backendSubmissions = await getSubmissions();
+        // Convert backend format to frontend format
+        const convertedSubmissions: Submission[] = backendSubmissions.map(
+          (sub) => ({
+            id: sub.id.toString(),
+            type: sub.type as "drawing" | "text",
+            human: sub.user_content,
+            ai: sub.ai_response,
+            votes: sub.votes,
+            timestamp: Date.now(), // Backend doesn't have timestamp, so use current time
+          })
+        );
+        setSubmissions(convertedSubmissions);
+      } catch (error) {
+        console.error("Failed to load submissions from backend:", error);
       }
-    }
+    };
+
+    loadSubmissions();
   }, []);
 
-  // Save submissions to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem("humanvsai-submissions", JSON.stringify(submissions));
-  }, [submissions]);
-
-  const handleSubmission = (submission: {
+  const handleSubmission = async (submission: {
     type: "drawing" | "text";
     human: string;
     ai: string;
   }) => {
-    const newSubmission: Submission = {
-      id: Date.now().toString(),
-      ...submission,
-      votes: 0,
-      timestamp: Date.now(),
-    };
+    try {
+      // Save to backend
+      const backendSubmission: Omit<BackendSubmission, "id"> = {
+        type: submission.type,
+        user_content: submission.human,
+        ai_response: submission.ai,
+        votes: 0,
+      };
 
-    setSubmissions((prev) => [newSubmission, ...prev]);
+      const savedSubmission = await saveSubmission(backendSubmission);
+
+      // Convert to frontend format and add to state
+      const newSubmission: Submission = {
+        id: savedSubmission.id.toString(),
+        type: savedSubmission.type as "drawing" | "text",
+        human: savedSubmission.user_content,
+        ai: savedSubmission.ai_response,
+        votes: savedSubmission.votes,
+        timestamp: Date.now(),
+      };
+
+      setSubmissions((prev) => [newSubmission, ...prev]);
+    } catch (error) {
+      console.error("Failed to save submission:", error);
+      // Fallback to local storage if backend fails
+      const newSubmission: Submission = {
+        id: Date.now().toString(),
+        ...submission,
+        votes: 0,
+        timestamp: Date.now(),
+      };
+      setSubmissions((prev) => [newSubmission, ...prev]);
+    }
   };
 
-  const handleVote = (submissionId: string) => {
-    setSubmissions((prev) =>
-      prev.map((sub) =>
-        sub.id === submissionId ? { ...sub, votes: sub.votes + 1 } : sub
-      )
-    );
+  const handleVote = async (submissionId: string) => {
+    try {
+      // Vote on backend
+      const updatedSubmission = await voteSubmission(parseInt(submissionId));
+
+      // Update local state
+      setSubmissions((prev) =>
+        prev.map((sub) =>
+          sub.id === submissionId
+            ? { ...sub, votes: updatedSubmission.votes }
+            : sub
+        )
+      );
+    } catch (error) {
+      console.error("Failed to vote on submission:", error);
+      // Fallback to local update if backend fails
+      setSubmissions((prev) =>
+        prev.map((sub) =>
+          sub.id === submissionId ? { ...sub, votes: sub.votes + 1 } : sub
+        )
+      );
+    }
   };
 
   const renderPage = () => {
