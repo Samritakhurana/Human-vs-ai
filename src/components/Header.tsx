@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
         <div className="flex items-center space-x-2">
           <Palette className="w-7 h-7 text-purple-700" />
           <span className="text-2xl font-extrabold text-gray-900 tracking-tight">
-            Human vs AI
+            Mood Trace
           </span>
         </div>
         {/* Nav Links */}
@@ -56,17 +56,13 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
         {/* Actions */}
         <div className="flex items-center space-x-3">
           <a
-            href="#"
+            href="https://github.com/Samritakhurana/Human-vs-ai"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center bg-gradient-to-r from-pink-500 to-pink-400 text-white px-4 py-2 rounded-lg font-semibold hover:from-pink-600 hover:to-pink-500 transition-all"
           >
             <Github className="w-5 h-5 mr-2" /> GitHub
           </a>
-          <button className="bg-purple-600 text-white font-bold px-6 py-2 rounded-lg text-base md:text-lg hover:bg-purple-700 transition-colors">
-            Get Started
-          </button>
-          <button className="ml-2 p-2 rounded-full hover:bg-gray-100 transition-colors">
-            <Palette className="w-5 h-5 text-gray-700" />
-          </button>
         </div>
       </nav>
     </header>

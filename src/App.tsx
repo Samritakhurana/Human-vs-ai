@@ -16,6 +16,7 @@ import VotingSystem from "./components/VotingSystem";
 import ResultsGallery from "./components/ResultsGallery";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import GamesHub from "./GamesHub";
 import {
   saveSubmission,
   getSubmissions,
@@ -23,7 +24,7 @@ import {
   Submission as BackendSubmission,
 } from "./services/api";
 
-type Page = "landing" | "home" | "draw" | "text" | "vote" | "gallery";
+type Page = "landing" | "home" | "draw" | "text" | "vote" | "gallery" | "games";
 
 interface Submission {
   id: string;
@@ -163,6 +164,8 @@ function App() {
             onNavigate={setCurrentPage}
           />
         );
+      case "games":
+        return <GamesHub onBack={() => setCurrentPage("home")} />;
       default:
         return <h2>Page not found</h2>;
     }

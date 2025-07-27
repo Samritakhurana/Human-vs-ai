@@ -6,10 +6,11 @@ import {
   Trophy,
   ArrowRight,
   Pencil,
+  Gamepad2,
 } from "lucide-react";
 
 interface HomePageProps {
-  onNavigate: (page: "draw" | "text" | "vote" | "gallery") => void;
+  onNavigate: (page: "draw" | "text" | "vote" | "gallery" | "games") => void;
 }
 
 const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
@@ -66,6 +67,36 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div className="flex items-center text-blue-600 font-medium group-hover:translate-x-2 transition-transform">
               Start Writing <ArrowRight className="w-4 h-4 ml-2" />
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Stress Relief Games Section */}
+      <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-10 shadow-lg border border-indigo-100">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-indigo-900 mb-4">
+            🎮 Stress Relief Games
+          </h2>
+          <p className="text-indigo-700 text-lg leading-relaxed max-w-3xl mx-auto">
+            Take a break from the AI challenges and relax with our therapeutic
+            games. Perfect for stress relief and mental wellness.
+          </p>
+        </div>
+        <div
+          onClick={() => onNavigate("games")}
+          className="group bg-gradient-to-br from-indigo-500 to-purple-600 p-8 rounded-xl border border-indigo-200 cursor-pointer hover:shadow-xl transition-all hover:scale-105 text-white"
+        >
+          <div className="flex items-center mb-4">
+            <Gamepad2 className="w-8 h-8 text-white mr-4" />
+            <h3 className="text-xl font-bold text-white">Stress Relief Hub</h3>
+          </div>
+          <p className="text-indigo-100 mb-6 leading-relaxed text-lg">
+            Explore our collection of therapeutic games including bubble
+            popping, memory matching, breathing exercises, and more. Designed to
+            help you relax and reduce stress.
+          </p>
+          <div className="flex items-center text-white font-bold text-lg group-hover:translate-x-2 transition-transform">
+            Start Relaxing <ArrowRight className="w-5 h-5 ml-2" />
           </div>
         </div>
       </div>
@@ -154,11 +185,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </div>
 
       {/* Footer Message */}
-      <div className="text-center py-6">
-        <p className="text-gray-500 text-base md:text-lg font-medium">
-          Because sometimes the most human thing is being beautifully imperfect
-        </p>
-      </div>
+      <div className="text-center py-6">{/* Footer message removed */}</div>
     </div>
   );
 };

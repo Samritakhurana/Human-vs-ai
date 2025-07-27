@@ -82,9 +82,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
           }`}
         >
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-7xl md:text-9xl font-black mb-6 bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent leading-tight">
-              Can AI feel?
+            <h1 className="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent leading-tight">
+              Mood Trace
             </h1>
+            <p className="text-xl md:text-2xl text-gray-600 font-medium mb-4">
+              Where human emotions meet AI interpretation
+            </p>
 
             <div className="relative mb-8">
               <p className="text-2xl md:text-3xl text-gray-700 font-light leading-relaxed">
@@ -106,7 +109,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
               className="group relative px-12 py-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl font-bold rounded-full shadow-2xl hover:shadow-purple-300 transition-all duration-300 hover:scale-105 active:scale-95"
             >
               <span className="flex items-center">
-                Try Human vs AI
+                Start Tracing Moods
                 <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
@@ -303,37 +306,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
           </div>
         </section>
 
-        {/* Team Note */}
-        <section className="mb-20 max-w-3xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-3xl p-8 border-4 border-dashed border-purple-300">
-            <h2 className="text-3xl font-black mb-4 text-gray-800">
-              Built in 3 Days ⚡
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Created for{" "}
-              <span className="font-bold text-purple-600">
-                [Hackathon Name]
-              </span>{" "}
-              to explore the beautiful gap between human expression and machine
-              logic.
-            </p>
-            <p className="text-sm font-handwriting text-purple-600 mt-4">
-              Because sometimes the most human thing is being imperfect.
-            </p>
-          </div>
-        </section>
-
         {/* Footer */}
         <footer className="text-center max-w-2xl mx-auto">
-          {/* Removed View Code and Contact Us buttons */}
-
-          <p className="text-gray-600 text-sm">
-            Made with by humans, for humans.
-            <br />
-            <span className="font-handwriting text-purple-600">
-              (AI helped with the boring parts)
-            </span>
-          </p>
+          {/* Footer content removed */}
         </footer>
       </div>
     </div>
