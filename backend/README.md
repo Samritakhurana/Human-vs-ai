@@ -2,7 +2,7 @@
 
 A FastAPI backend service that powers the Human vs AI application, providing AI-powered text and drawing analysis using Groq's LLM API.
 
-## 🚀 Features
+## Features
 
 - **Text Analysis**: Analyze user emotions and thoughts using Groq's Llama 3.3-70B model
 - **Drawing Analysis**: Interpret user drawings and provide AI insights
@@ -11,7 +11,7 @@ A FastAPI backend service that powers the Human vs AI application, providing AI-
 - **CORS Support**: Configured for frontend integration
 - **Environment-based Configuration**: Secure API key management
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework**: FastAPI (Python)
 - **AI Provider**: Groq (Llama 3.3-70B Versatile)
@@ -19,13 +19,13 @@ A FastAPI backend service that powers the Human vs AI application, providing AI-
 - **Environment Management**: python-dotenv
 - **Data Validation**: Pydantic
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Python 3.8+
 - Groq API key
 - pip (Python package manager)
 
-## 🔧 Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -62,14 +62,14 @@ uvicorn main:app --reload --host 127.0.0.1 --port 8000
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-## 📚 API Documentation
+## API Documentation
 
 Once the server is running, visit:
 
 - **Interactive API Docs**: http://127.0.0.1:8000/docs
 - **Alternative Docs**: http://127.0.0.1:8000/redoc
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Health Check
 
@@ -181,14 +181,14 @@ POST /submissions/{submission_id}/vote
 
 Increments the vote count for a specific submission.
 
-## 🔒 Security Features
+## Security Features
 
 - **Environment Variables**: API keys stored securely in `.env` files
 - **CORS Configuration**: Properly configured for frontend integration
 - **Input Validation**: All requests validated using Pydantic models
 - **Error Handling**: Comprehensive error handling for API failures
 
-## 🌐 CORS Configuration
+## CORS Configuration
 
 The backend is configured to accept requests from:
 
@@ -196,7 +196,7 @@ The backend is configured to accept requests from:
 - `http://localhost:3000-3002` (Alternative dev ports)
 - `http://127.0.0.1:5173` and `http://127.0.0.1:3000-3002`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 backend/
@@ -208,7 +208,7 @@ backend/
 └── README.md           # This file
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Local Development
 
@@ -236,7 +236,7 @@ For production deployment on platforms like Railway, Render, or Heroku:
    uvicorn main:app --host 0.0.0.0 --port $PORT
    ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -253,7 +253,7 @@ The backend uses Groq's `llama-3.3-70b-versatile` model for:
 - Drawing interpretation
 - General conversation and insights
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -287,7 +287,7 @@ Enable debug logging by setting the log level:
 uvicorn main:app --reload --log-level debug
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -295,11 +295,11 @@ uvicorn main:app --reload --log-level debug
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
+## License
 
 This project is part of the Human vs AI application.
 
-## 🆘 Support
+## Support
 
 For issues and questions:
 
