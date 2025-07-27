@@ -172,17 +172,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
         </FloatingDoodle>
 
         {/* New Mood-Related Icons */}
-        <FloatingDoodle className="bottom-40 right-1/4 text-2xl" delay={1.5}>
-          😊
-        </FloatingDoodle>
         <FloatingDoodle className="top-1/2 left-1/4 text-2xl" delay={2}>
           🧠
         </FloatingDoodle>
         <FloatingDoodle className="bottom-1/3 left-1/2 text-2xl" delay={0.8}>
           🤖
         </FloatingDoodle>
-
-        {/* Animated Gradient Orbs */}
         <div
           className="absolute top-1/4 right-1/3 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse"
           style={{ animationDuration: "6s" }}
@@ -227,19 +222,31 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
           }`}
         >
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-purple-500 via-pink-400 to-blue-500 bg-clip-text text-transparent leading-tight">
               Mood Trace
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 font-medium mb-4">
-              Where human emotions meet AI interpretation
+            <p className="text-xl md:text-2xl text-pink-600 font-medium mb-4">
+              Draw what you feel.
+            </p>
+                        <p className="text-xl md:text-2xl text-purple-600 font-medium mb-4">
+              Write what you mean.
+            </p>
+                        <p className="text-xl md:text-2xl text-pink-600 font-medium mb-4">
+             Then let AI guess 
+            </p>
+                                    <p className="text-xl md:text-2xl text-purple-600 font-medium mb-4">
+            but here's the twist:
+            </p>
+                        <p className="text-xl md:text-2xl text-pink-600 font-medium mb-4">
+              It never really know!!
             </p>
 
             <div className="relative mb-8">
               <p className="text-2xl md:text-3xl text-gray-700 font-light leading-relaxed">
-                Draw your emotions. Watch AI try to copy them.
+                Tell your story💓💓. See how AI misreads your heart💔💔
                 <br />
-                <span className="font-handwriting text-purple-600 text-xl">
-                  Spoiler: It can't. 🎭
+                <span className="font-handwriting text-purple-600 text-2xl">
+                  Spoiler: It can't!!! 😁😁😁😁
                 </span>
               </p>
 
@@ -251,10 +258,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
 
             <button
               onClick={onEnterApp}
-              className="group relative px-12 py-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl font-bold rounded-full shadow-2xl hover:shadow-purple-300 transition-all duration-300 hover:scale-105 active:scale-95"
+              className="group relative px-12 py-6 bg-gradient-to-r from-purple-500 to-pink-400 text-white text-xl font-bold rounded-full shadow-2xl hover:shadow-purple-300 transition-all duration-300 hover:scale-105 active:scale-95"
             >
               <span className="flex items-center">
-                Start Tracing Moods
+                Begin Tracing!
                 <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
@@ -304,14 +311,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
 
             <div className="text-center group">
               <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 border-4 border-dashed border-pink-200">
-                <div className="text-6xl mb-4">🗳️</div>
+                <div className="text-6xl mb-4">😃</div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-3">
                   3. You Decide
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   Vote on which feels more human.
                   <span className="block font-handwriting text-pink-600 mt-2">
-                    Spoiler: It's always you.
+                    Spoiler: It's always GOING TO be YOU!!
                   </span>
                 </p>
               </div>
@@ -322,7 +329,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
         {/* Live Demos */}
         <section className="mb-20 max-w-6xl mx-auto">
           <h2 className="text-5xl font-black text-center mb-16 text-gray-800">
-            See The Difference
+            Just Look At the Difference!
             <span className="block text-lg font-handwriting text-purple-600 mt-2">
               (Humans win every time)
             </span>
@@ -362,8 +369,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
               </div>
 
               <div className="text-center">
-                <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">
-                  87% prefer the human version
+                <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
+                  Obviously, we prefer the human version😉
                 </span>
               </div>
             </div>
@@ -401,8 +408,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
               </div>
 
               <div className="text-center">
-                <span className="bg-pink-100 text-pink-700 px-4 py-2 rounded-full text-sm font-medium">
-                  92% prefer the human version
+                <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
+                  Obviously, we prefer the human version again😉
                 </span>
               </div>
             </div>
@@ -412,13 +419,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
         {/* Tech Stack */}
         <section className="mb-20 max-w-4xl mx-auto">
           <h2 className="text-4xl font-black text-center mb-12 text-gray-800">
-            Built With Love & Code
+           With lines of code… and a whole lot of heart.
             <span className="block text-lg font-handwriting text-purple-600 mt-2">
-              (And a lot of caffeine)
+              (And obviously a lot of caffeine!!🥹)
             </span>
           </h2>
 
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-4 border-dashed border-gray-200">
+          {/* <div className="bg-white rounded-3xl p-8 shadow-xl border-4 border-dashed border-gray-200">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center group">
                 <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold group-hover:scale-110 transition-transform">
@@ -448,7 +455,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
                 <p className="text-sm font-medium text-gray-700">OpenAI</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
 
         {/* Footer */}

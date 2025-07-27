@@ -11,18 +11,13 @@ const navLinks = [
   { name: "Text", page: "text" },
   { name: "Vote", page: "vote" },
   { name: "Gallery", page: "gallery" },
-  { name: "How It Works", page: "home" }, // You can update this if you have a separate page for How It Works
 ];
 
 const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   return (
     <header className="w-full">
       {/* Top Banner */}
-      <div className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm py-2 flex justify-center items-center">
-        <span className="font-medium flex items-center">
-          <span className="mr-2">⚡</span>
-          Experience the future of human and AI creativity!
-        </span>
+      <div className="w-full bg-gradient-to-r from-purple-300 to-pink-200 text-white text-sm py-2 flex justify-center items-center">
       </div>
       {/* Main Nav */}
       <nav className="w-full bg-white shadow flex items-center justify-between px-6 py-3">
